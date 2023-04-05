@@ -10,18 +10,18 @@ def minOperations(n):
     Calculate the fewest number of operations needed to get 'n' H characters in a file
     """
 
-    current = 1
-    begin = 0
+    now = 1
+    start = 0
     count = 0
-    while current < n:
-        rem = n - current
-        if (rem % current == 0):
-            begin = current
-            current += begin
-            count += 2
+    while now < n:
+        rem = n - now
+        if (rem % now == 0):
+            start = now
+            now = now + start
+            count = count + 2
         else:
-            current += begin
-            count += 1
+            now = now + start
+            count = count + 1
     return count
 
 # !/usr/bin/python3
