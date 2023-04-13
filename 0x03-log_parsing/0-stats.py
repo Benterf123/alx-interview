@@ -5,15 +5,15 @@
 import sys
 
 
-def printstats(dict, size):
+def printsts(dic, size):
     """ WWPrints information """
     print("File size: {:d}".format(size))
-    for i in sorted(dict.keys()):
-        if dict[i] != 0:
-            print("{}: {:d}".format(i, dict[i]))
+    for i in sorted(dic.keys()):
+        if dic[i] != 0:
+            print("{}: {:d}".format(i, dic[i]))
 
 
-stats = {"200": 0, "301": 0, "400": 0, "401": 0, "403": 0,
+sts = {"200": 0, "301": 0, "400": 0, "401": 0, "403": 0,
        "404": 0, "405": 0, "500": 0}
 
 count = 0
@@ -22,24 +22,24 @@ size = 0
 try:
     for line in sys.stdin:
         if count != 0 and count % 10 == 0:
-            printsts(stats, size)
+            printsts(sts, size)
 
-        statlist = line.split()
+        stlist = line.split()
         count += 1
 
         try:
-            size += int(statlist[-1])
+            size += int(stlist[-1])
         except:
             pass
 
         try:
-            if statlist[-2] in sts:
-                stats[statlist[-2]] += 1
+            if stlist[-2] in sts:
+                stats[stlist[-2]] += 1
         except:
             pass
-    printstats(stats, size)
+    printsts(sts, size)
 
 
 except KeyboardInterrupt:
-    printstats(stats, size)
+    printsts(sts, size)
     raise
