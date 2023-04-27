@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-"""A script reading stdin line by line then calculates the metrics"""
+"""Script that reads stdin line by line and computes metrics"""
 
 import sys
 
@@ -34,7 +34,7 @@ try:
 
         try:
             if stlist[-2] in sts:
-                stats[stlist[-2]] += 1
+                sts[stlist[-2]] += 1
         except:
             pass
     printsts(sts, size)
